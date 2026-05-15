@@ -1,10 +1,11 @@
 import 'reflect-metadata';
 
 import { Logger, ValidationPipe } from '@nestjs/common';
-
 import { NestFactory } from '@nestjs/core';
 
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
+import { NestExpressApplication } from '@nestjs/platform-express';
 
 import { AppModule } from './app.module';
 
@@ -14,7 +15,10 @@ import { TransformResponseInterceptor } from './common/interceptors/transform-re
 import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  // Security
+  app.disable('x-powered-by');
 
   const config = new DocumentBuilder()
     .setTitle('Content Ops Tool API')
@@ -48,7 +52,7 @@ async function bootstrap() {
 
   const port = process.env.PORT || 3000;
 
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0');
 
   logger.log(`🚀 Application running on: http://localhost:${port}`);
 
