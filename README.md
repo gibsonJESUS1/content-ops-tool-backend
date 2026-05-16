@@ -182,4 +182,4 @@ Deployed publicly on Railway with PostgreSQL cloud database integration.
 
 Tosin Owolabi
 
-Backend Engineer | Distributed Systems & Cloud Engineering Learner
+Backend Engineer | Distributed Systems & Cloud Engineering
