@@ -58,5 +58,15 @@ async function bootstrap() {
 
   logger.log(`📚 Swagger docs available at: /api/docs`);
 }
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught Exception:', error);
+});
 
-void bootstrap();
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled Rejection:', reason);
+});
+bootstrap().catch((error) => {
+  console.error('Application failed to start:', error);
+
+  process.exit(1);
+});
