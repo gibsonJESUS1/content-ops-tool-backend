@@ -1,114 +1,232 @@
-# Content Ops Tool Backend
+# 🚀 Content Ops Tool Backend
 
-Production-grade backend API built with NestJS, Prisma, PostgreSQL, and JWT authentication.
+Production-grade backend API built with NestJS, TypeScript, Prisma ORM, PostgreSQL, and JWT authentication.
 
-## Live API
-
-https://scintillating-bravery-production.up.railway.app/
-
-## Swagger Documentation
-
-https://scintillating-bravery-production.up.railway.app/api/docs
+Designed with scalable backend architecture, modular system design, authentication flows, and production-ready deployment practices.
 
 ---
 
-# Tech Stack
+## 🌐 Live API
 
-- NestJS
-- TypeScript
-- Prisma ORM
-- PostgreSQL
-- JWT Authentication
-- Swagger / OpenAPI
-- Railway Deployment
-- REST API Architecture
+👉 https://scintillating-bravery-production.up.railway.app/
 
 ---
 
-# Features
+## 📚 Swagger Documentation
 
-- User Registration
-- User Login
-- JWT Access Token Authentication
-- Refresh Token Flow
-- Role-based Authorization
-- Content CRUD Operations
-- Global Validation Pipeline
-- Exception Filters
-- Response Transformation
-- Request Logging
-- Production-ready Environment Configuration
-- Swagger API Documentation
+Interactive Swagger/OpenAPI documentation for testing and exploring backend endpoints.
+
+👉 https://scintillating-bravery-production.up.railway.app/api/docs
+
+### Swagger Preview
+
+![Swagger Documentation](./screenshots/swagger-auth.png)
+
+### API Features
+
+* JWT Access & Refresh Token Authentication
+* DTO Validation
+* Role-Based Authorization
+* Protected Routes & Guards
+* Standardized API Responses
+* Request Validation Pipelines
+* Modular Route Structure
+* OpenAPI Documentation
 
 ---
 
-# Project Architecture
+## ⚡ Engineering Highlights
 
-```bash
-src/
-├── auth/
-├── content/
-├── prisma/
-├── common/
-│   ├── interceptors/
-│   ├── guards/
-│   └── decorators/
-├── filters/
-├── config/
+* Modular NestJS backend architecture
+* PostgreSQL + Prisma ORM integration
+* JWT authentication & refresh token flow
+* Role-based authorization
+* DTO validation pipelines
+* Global exception filters
+* Response transformation interceptors
+* Request logging middleware
+* Environment-based configuration
+* Swagger/OpenAPI integration
+* Railway production deployment
+
+---
+
+## 🛠 Tech Stack
+
+### Backend Engineering
+
+* NestJS
+* Node.js
+* TypeScript
+
+### Database & ORM
+
+* PostgreSQL
+* Prisma ORM
+
+### Authentication & Security
+
+* JWT Authentication
+* Role Guards
+* Protected Routes
+* Password Hashing
+
+### API & Architecture
+
+* REST API Architecture
+* Swagger/OpenAPI
+* DTO Validation
+* Exception Filters
+* Interceptors
+
+### Deployment
+
+* Railway
+* Environment Configuration
+
+---
+
+## 🏗 System Architecture
+
+```text
+Client Application
+        ↓
+NestJS REST API
+        ↓
+Authentication Layer
+Content Module
+Validation Layer
+Business Logic Layer
+        ↓
+Prisma ORM
+        ↓
+PostgreSQL Database
+```
+
+### Project Structure
+
+```text
+src
+├── auth
+├── content
+├── prisma
+├── common
+│   ├── decorators
+│   ├── guards
+│   ├── interceptors
+│   └── pipes
+├── filters
+├── config
 └── main.ts
+```
+
+The application follows a modular backend architecture with separation of concerns between controllers, services, DTO validation, authentication, and database access layers.
+
+---
+
+## 🔐 Authentication Module
+
+### Endpoints
+
+| Method | Endpoint         | Description                           |
+| ------ | ---------------- | ------------------------------------- |
+| POST   | `/auth/register` | Register a new user                   |
+| POST   | `/auth/login`    | Authenticate user and generate tokens |
+| POST   | `/auth/refresh`  | Generate new access token             |
+| POST   | `/auth/logout`   | Logout authenticated user             |
+| GET    | `/auth/profile`  | Access authenticated user profile     |
+| GET    | `/auth/admin`    | Protected admin-only route            |
+
+### Authentication Features
+
+* JWT Access Token Authentication
+* Refresh Token Flow
+* Password Hashing
+* Role Guards
+* Protected Routes
+* Authorization Middleware
+
+---
+
+## 📦 Content Module
+
+### Endpoints
+
+| Method | Endpoint       |
+| ------ | -------------- |
+| POST   | `/content`     |
+| GET    | `/content`     |
+| GET    | `/content/:id` |
+| PATCH  | `/content/:id` |
+| DELETE | `/content/:id` |
+
+### Features
+
+* CRUD Operations
+* Pagination
+* Query Filtering
+* DTO Validation
+* Prisma Database Integration
+* Structured Service Layer
+
+---
+
+## 🔄 Request Lifecycle
+
+```text
+Incoming Request
+        ↓
+Controller Layer
+        ↓
+DTO Validation Pipeline
+        ↓
+Authentication & Guards
+        ↓
+Service Layer
+        ↓
+Prisma ORM
+        ↓
+PostgreSQL Database
+        ↓
+Response Transformation
+        ↓
+Client Response
 ```
 
 ---
 
-# API Modules
+## 🚀 Deployment Architecture
 
-## Authentication Module
+```text
+Frontend Client
+        ↓
+Railway Hosted NestJS API
+        ↓
+Prisma ORM
+        ↓
+PostgreSQL Cloud Database
+```
 
-Endpoints:
+### Production Deployment Features
 
-- POST /auth/register
-- POST /auth/login
-- POST /auth/refresh
-- POST /auth/logout
-- GET /auth/profile
-
-Features:
-
-- JWT Authentication
-- Password Hashing
-- Protected Routes
-- Role Guards
-
----
-
-## Content Module
-
-Endpoints:
-
-- POST /content
-- GET /content
-- GET /content/:id
-- PATCH /content/:id
-- DELETE /content/:id
-
-Features:
-
-- Pagination
-- Query Filtering
-- DTO Validation
-- Prisma Database Integration
+* Railway cloud hosting
+* PostgreSQL cloud database
+* Environment-based configuration
+* Production-ready API structure
+* Swagger/OpenAPI documentation
+* Secure JWT authentication flow
 
 ---
 
-# Local Development Setup
+## ⚙ Local Development Setup
 
-## Install Dependencies
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
-## Configure Environment Variables
+### Configure Environment Variables
 
 Create a `.env` file:
 
@@ -118,25 +236,19 @@ JWT_SECRET=your_jwt_secret
 JWT_REFRESH_SECRET=your_refresh_secret
 ```
 
----
-
-# Run Development Server
+### Run Development Server
 
 ```bash
 npm run start:dev
 ```
 
----
-
-# Build Production Version
+### Build Production Version
 
 ```bash
 npm run build
 ```
 
----
-
-# Run Production Server
+### Run Production Server
 
 ```bash
 npm run start:prod
@@ -144,17 +256,17 @@ npm run start:prod
 
 ---
 
-# Database
+## 🗄 Database
 
-Prisma ORM with PostgreSQL.
+The application uses Prisma ORM with PostgreSQL for type-safe database access and schema management.
 
-## Generate Prisma Client
+### Generate Prisma Client
 
 ```bash
 npx prisma generate
 ```
 
-## Run Migrations
+### Run Database Migrations
 
 ```bash
 npx prisma migrate dev
@@ -162,24 +274,23 @@ npx prisma migrate dev
 
 ---
 
-# API Documentation
+## 📈 Planned Improvements
 
-Swagger documentation available at:
-
-```bash
-/api/docs
-```
-
----
-
-# Deployment
-
-Deployed publicly on Railway with PostgreSQL cloud database integration.
+* Redis caching layer
+* CI/CD pipeline integration
+* API rate limiting
+* Structured application logging
+* Background job queues
+* Observability & monitoring
+* Docker container optimization
+* Event-driven architecture exploration
 
 ---
 
-# Author
+## 👨‍💻 Author
 
 Tosin Owolabi
 
-Backend Engineer | Distributed Systems & Cloud Engineering
+Backend Engineer | Node.js, TypeScript & Cloud Systems
+
+Open to backend engineering opportunities, remote collaboration, and international relocation opportunities.
